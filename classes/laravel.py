@@ -7,7 +7,8 @@ class Laravel:
         self.development_ready = development_ready
         
     
-    def optimize(self):
+    def optimize(self, directory):
+        print("[*] Optimizing project")
         self.optimize_project()
         
         if (self.shared_hosting):
