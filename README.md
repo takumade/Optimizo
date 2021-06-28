@@ -55,6 +55,18 @@ Happy Optimizing!
 ```
 
 
+## How does it work
+
+```
+1. Fetches assets url from blade files   [✔️]
+2. Finds the actual location of the assets   [ ]
+3. Optimizes the assets and renames them e.g hello.js -> hello.min.js  [ ]
+4. Rename assets name blade files e.g src="{{ asset('hello.js')  }}" -> src="{{ asset('hello.min.js')  }" [ ]
+5. Change project to production [ ]
+6. Change project to shared hosting ready [ ]
+```
+
+
 
 
 ## How to do tests
