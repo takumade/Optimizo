@@ -1,4 +1,5 @@
 import unittest
+import os
 
 from classes import minify
 
@@ -15,6 +16,15 @@ class TestMinify(unittest.TestCase):
     
     def test_js_minify(self):
         self.assertEqual(self.min.js_str('var i = 1; i += 2 ;\n alert( "hello  "  ); //hi'), 'var i=1;i+=2;alert("hello  ");')
+        
+    def test_html_file_minify(self):
+        self.min.html_file('./tests/test.html')
+        
+    def test_css_file_minify(self):
+        self.min.css_file('./tests/test.css')
+        
+    def test_js_file_minify(self):
+        self.min.js_file('./tests/test.js')
     
 
 if __name__ == '__main__':
