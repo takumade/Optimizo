@@ -35,17 +35,21 @@ usage: optimizo [-h] [-t] [-c] [-j] [-s] [-g] [-u] project_type
 Optimize Laravel project and push it to Github
 
 positional arguments:
-  project_type          type of project e.g laravel
+  project_type          type of project e.g larave, rn, flutter  
 
 optional arguments:
   -h, --help            show this help message and exit
   -t, --html            Optimize HTML
   -c, --css             Optimize CSS
   -j, --js              Optimize JS
-  -s, --shared-hosting  Modifies laravel so its shared hosting ready. Works only with      
-                        Laravel
+  -s, --shared          Modifies laravel so its shared hosting ready.       
+                        Works only with Laravel
+  -d, --dev             Modifies laravel so its dev ready. Works only if    
+                        was modified to `shared hosting ready` by optimizo  
+                        previously
   -g, --github          Push project to github.
-  -u, --unoptimize      Unoptimize project back to the way it was.
+  -w DIRECTORY, --directory DIRECTORY
+                        Working directory. Directory with your project      
 
 Happy Optimizing!
 ```
