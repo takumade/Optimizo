@@ -1,4 +1,10 @@
 import os
+import time
+import uuid
+
+from tinydb import TinyDB, Query
+from classes.optimize_assets import OptimizeAssets
+from classes.optimize_blades import OptimizeBlades
 
 class Laravel:
     def __init__(self, optimize_html=True, development_ready=False, optimize_css=True, optimize_js=True, shared_hosting=True ):
@@ -9,6 +15,8 @@ class Laravel:
         self.development_ready = development_ready
         
         self.cwd = ""
+        
+        self.db = TinyDB('storage/optimizo.json')
         
         
     def is_laravel_project(self):
@@ -64,7 +72,34 @@ class Laravel:
     
         
     def optimize_project(self):
-        pass
+        # 
+        
+        session_id = str(uuid.uuid4()) 
+        
+        table = self.db.table("session")
+        table.insert({
+            'session_id': session_id,
+            'session_time': time.strftime("%d/%m/%Y %H:%M:%S"),
+            'project_type': 'laravel',
+            'project_dir': os.getcwd()
+        })
+        
+        optimize_assets = OptimizeAssets(
+            os.path.join(os.getcwd(), "public"),
+            session_id,
+            self.db
+        )
+        
+        optmize_blades = OptimizeBlades(
+            os.path.join(os.getcwd(), "resources"),
+            session_id,
+            self.db
+        )
+        
+        optmize_blades.begin_optimization()
+        
+        # optimize_assets.begin_optimization()
+        
 
     def make_shared_hosting_ready(self):
         pass
