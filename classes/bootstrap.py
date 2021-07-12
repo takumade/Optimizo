@@ -44,23 +44,22 @@ class Bootstrap:
         
         ins = input("Choose instruction[1-5]: ")
         
-        add_instruction = AddInstruction(group, "move", target_dir)
-        
-        # try:
-        #     ins = int(ins)
-        #     choosen_ins = instructions[str(ins)]
-        #     add_instruction = AddInstruction(choosen_ins)
+  
+        try:
+            ins = int(ins)
+            choosen_ins = instructions[str(ins)]
+            add_instruction = AddInstruction(group, choosen_ins, target_dir)
             
              
-        # except ValueError:
+        except ValueError:
             
-        #     if (self.interactive_retry < 2):
-        #         self.interactive_retry += 1
-        #         print("[-] Please a number between 1-5")
-        #         self.add_instruction_interactive() 
-        #     else:
-        #         print("[-] You dont know what you are doing! Exiting...")
-        #         sys.exit()
+            if (self.interactive_retry < 2):
+                self.interactive_retry += 1
+                print("[-] Please a number between 1-5")
+                self.add_instruction_interactive() 
+            else:
+                print("[-] You dont know what you are doing! Exiting...")
+                sys.exit()
         
     
         

@@ -42,8 +42,12 @@ args = my_parser.parse_args()
 bootstrap = Bootstrap() 
 
 
-if (args.generate):
-    bootstrap.generate(args.directory)
+try:
+    if (args.generate):
+        bootstrap.generate(args.directory)
     
-if (args.group and args.add):
-    bootstrap.add_instruction_interactive(args.group, args.directory)
+    if (args.group and args.add):
+        bootstrap.add_instruction_interactive(args.group, args.directory)
+
+except KeyboardInterrupt:
+    print("\n\n[0] Goodbye, Exiting!")

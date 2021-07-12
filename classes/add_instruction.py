@@ -8,10 +8,12 @@ class AddInstruction:
         self.target_dir = target_dir
         
         self.retry_adding = 0
-        
+    
         
         if (self.name == "move"):
             self.get_move()
+        elif (self.name == "copy"):
+            self.get_copy()
 
         
         
@@ -38,25 +40,54 @@ class AddInstruction:
                         
                 if self.retry_adding < 2:
                     self.add_instruction(instruction_object)
+                else:
+                    print("[-] Couldnt add instruction, exiting")
                         
-                
+        print("[+] Added")
                     
         
         
     def get_move(self):
+        print("\nMOVE INSTRUCTION:\n")
         source_file = input("Source File: ")
         dest_file = input("Dest Directory: ")
         
-        
+        if (os.path.exists(os.path.abspath(source_file))):
+            if os.path.exists(os.path.abspath(dest_file)):
+                if (os.path.isdir(os.path.abspath(dest_file))):
+                    self.add_instruction(
+                        {
+                            "name": self.name,
+                            "src": os.path.abspath(source_file),
+                            "dst": os.path.abspath(dest_file)
+                        }
+                    )
+                else:
+                    print("[-] Destination file is not a directory, exiting")
+            else:
+                print("[-] Destination directory doesnt exist, exiting...")
+        else:
+            print("[-] Source file doesnt exist, exiting...")
+            
+    def get_copy(self):
+        print("\nCOPY INSTRUCTION:\n")
+        source_file = input("Source File: ")
+        dest_file = input("Dest Directory: ")
         
         if (os.path.exists(os.path.abspath(source_file))):
-            self.add_instruction(
-                {
-                    "name": self.name,
-                    "src": source_file,
-                    "dst": dest_file
-                }
-            )
+            if os.path.exists(os.path.abspath(dest_file)):
+                if (os.path.isdir(os.path.abspath(dest_file))):
+                    self.add_instruction(
+                        {
+                            "name": self.name,
+                            "src": os.path.abspath(source_file),
+                            "dst": os.path.abspath(dest_file)
+                        }
+                    )
+                else:
+                    print("[-] Destination file is not a directory, exiting")
+            else:
+                print("[-] Destination directory doesnt exist, exiting...")
         else:
             print("[-] Source file doesnt exist, exiting...")
         
