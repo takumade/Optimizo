@@ -9,7 +9,7 @@ from classes.bootstrap import Bootstrap
 
 # Create the parser
 my_parser = argparse.ArgumentParser(prog="optimizo", 
-                                    description='',
+                                    description='Optimizo its an tool that allows to set up instructions and run them later. In the mean you will have to run them manually',
                                     epilog='Happy Optimizing!')
 
 # Add the arguments

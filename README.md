@@ -4,12 +4,15 @@ Optimizo its an tool that allows to set up instructions and run them later. In t
 
 # How to Install
 1. Clone it 
+
 `git clone https://github.com/takumade/Optimizo.git`
 
 2. Install Requirements
+
 `cd Optimizo && pip install -r requirements`
 
 3. Play
+
 `python optimizo.py -h`
 
 
@@ -20,17 +23,20 @@ Optimizo its an tool that allows to set up instructions and run them later. In t
       `optimizo.py -c`   OR  `optimizo.py -c -w .`
 
     It will generate something like this:
-
-    ```json
-    {
-        "develop": [
-          "replace" : {
-              "file" : "file_path",
-              "old": "old_text",
-              "new": "new_text", 
-         ]
-    }
-    ```
+    
+```
+{
+    "develop": [{
+        "name": "copy",
+        "src": "C:\\xampp\\htdocs\\projects\\Optimizo\\config.py",
+        "dst": "C:\\xampp\\htdocs\\projects\\Optimizo\\classes"
+    }, {
+        "name": "replace",
+        "src": "C:\\xampp\\htdocs\\projects\\Optimizo\\config.py",
+        "search": "excluded_folders",
+        "replace": "excluded_beans"
+}]}
+```
 
 2. You then add your instructions like this
      `optimizo.py -g develop -a`
