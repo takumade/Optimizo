@@ -1,6 +1,7 @@
 
 import os, sys
 from classes.add_instruction import AddInstruction
+from classes.run_instructions import RunInstructions
 
 class Bootstrap:
     def __init__(self):
@@ -61,5 +62,7 @@ class Bootstrap:
                 print("[-] You dont know what you are doing! Exiting...")
                 sys.exit()
         
-    
+    def run_instruction(self, group, directory):
+       target_dir = self.get_directory(directory) 
+       run_inst = RunInstructions(group, target_dir)
         

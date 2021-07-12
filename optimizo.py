@@ -25,6 +25,12 @@ my_parser.add_argument('-g',
                        type=str,
                        help='Group to work with. If group doesnt exist it will be created.')
 
+my_parser.add_argument('-r',
+                       '--run',
+                       metavar='run',
+                       type=str,
+                       help='Run instructions under a specific group.')
+
 my_parser.add_argument('-a',
                        '--add',
                        action='store_true',
@@ -48,6 +54,9 @@ try:
     
     if (args.group and args.add):
         bootstrap.add_instruction_interactive(args.group, args.directory)
+        
+    if (args.run):
+        bootstrap.run_instruction(args.run, args.directory)
 
 except KeyboardInterrupt:
     print("\n\n[0] Goodbye, Exiting!")

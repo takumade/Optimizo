@@ -1,19 +1,7 @@
 {
     "develop": [{
         "name": "move",
-        "src": "config.py",
-        "dst": "/classes"
-    }, {
-        "name": "move",
-        "src": "optimizo.py",
-        "dst": "/classes"
-    }, {
-        "name": "move",
-        "src": "config.py",
-        "dst": "classes"
-    }, {
-        "name": "C:\\xampp\\htdocs\\projects\\Optimizo\\config.py",
-        "src": "config.py",
+        "src": "C:\\xampp\\htdocs\\projects\\Optimizo\\config.py",
         "dst": "C:\\xampp\\htdocs\\projects\\Optimizo\\classes"
     }]
 }
