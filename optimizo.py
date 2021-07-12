@@ -9,7 +9,7 @@ from classes.bootstrap import Bootstrap
 
 # Create the parser
 my_parser = argparse.ArgumentParser(prog="optimizo", 
-                                    description='Optimize Laravel project and push it to Github',
+                                    description='',
                                     epilog='Happy Optimizing!')
 
 # Add the arguments
