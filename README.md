@@ -2,6 +2,17 @@
 Optimizo its an tool that allows to set up instructions and run them later. In the mean you will have to run them manually
 
 
+# How to Install
+1. Clone it 
+`git clone https://github.com/takumade/Optimizo.git`
+
+2. Install Requirements
+`cd Optimizo && pip install -r requirements`
+
+3. Play
+`python optimizo.py -h`
+
+
 
 ## How does it work
 
@@ -12,11 +23,11 @@ Optimizo its an tool that allows to set up instructions and run them later. In t
 
     ```json
     {
-        'develop': [
-          'replace' : {
-              'file' : 'file_path',
-              'old': 'old_text',
-              'new': 'new_text', 
+        "develop": [
+          "replace" : {
+              "file" : "file_path",
+              "old": "old_text",
+              "new": "new_text", 
          ]
     }
     ```
@@ -49,7 +60,14 @@ Here is a list of supported intructions
 | command | Execute a command | No
 
 
+### Todo
+
+- [ ] Remove Ununsed files
+- [ ] Implement command instructions
+- [ ] Implement minify instructions
+- [ ] Add setup.py
+- [ ] Do a blog
             
 ### What am i doing with this tool
-- I use it optimize my laravel projects
+- I use it optimize my Laravel projects
 
