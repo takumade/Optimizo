@@ -31,7 +31,7 @@ class RunInstructions:
             if ins_name == "move":
                 self.move_ins(ins)
             elif ins_name == "copy":
-                pass
+                self.copy_ins(ins)
             
         print("[+] Done executing instructions")
                     
@@ -42,6 +42,13 @@ class RunInstructions:
         
         print("Moving {0} to {1}".format(src_file, dst_path))
         shutil.move(src_file, dst_path)
+    
+    def copy_ins(self,obj):
+        src_file = obj["src"]
+        dst_path = obj["dst"]
+        
+        print("Copy {0} to {1}".format(src_file, dst_path))
+        shutil.copy(src_file, dst_path)
         
         
         

@@ -1,6 +1,6 @@
 {
     "develop": [{
-        "name": "move",
+        "name": "copy",
         "src": "C:\\xampp\\htdocs\\projects\\Optimizo\\config.py",
         "dst": "C:\\xampp\\htdocs\\projects\\Optimizo\\classes"
     }]
