@@ -14,6 +14,8 @@ class AddInstruction:
             self.get_move()
         elif (self.name == "copy"):
             self.get_copy()
+        elif (self.name == "replace"):
+            self.get_replace()
 
         
         
@@ -91,7 +93,26 @@ class AddInstruction:
         else:
             print("[-] Source file doesnt exist, exiting...")
         
+    def get_replace(self):
+        print("\nREPLACE INSTRUCTION:\n")
+        source_file = input("Source File: ")
+        search_str = input("Search String: ")
+        repl_str = input("Replace String: ")
         
+        file_name = os.path.abspath(source_file)
+        
+        if os.path.exists(file_name):
+            if (os.path.isfile(file_name)):
+                self.add_instruction({
+                    "name": self.name,
+                    "src": file_name,
+                    "search": search_str,
+                    "replace": repl_str
+                })
+            else:
+                print("[-] File must be an actual file XD")
+        else:
+            print("[-] File doesnt exist")
         
         
         
