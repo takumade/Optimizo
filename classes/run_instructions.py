@@ -1,6 +1,7 @@
 import os
 import json
 import shutil
+import re
 
 class RunInstructions:
     def __init__(self, group, directory):
@@ -32,6 +33,8 @@ class RunInstructions:
                 self.move_ins(ins)
             elif ins_name == "copy":
                 self.copy_ins(ins)
+            elif ins_name == "replace":
+                self.replace_ins(ins)
             
         print("[+] Done executing instructions")
                     
@@ -50,7 +53,20 @@ class RunInstructions:
         print("Copy {0} to {1}".format(src_file, dst_path))
         shutil.copy(src_file, dst_path)
         
+    
+    def replace_ins(self, obj):
+        file_name = obj["src"]
+        search_str = obj["search"]
+        repl_str = obj["replace"]
         
+        print("[+] Replacing {0} with {1}".format(search_str, repl_str))
+        
+        with open(file_name, "r+") as f:
+            text = f.read()
+            text = re.sub(search_str, repl_str, text)
+            f.seek(0)
+            f.write(text)
+            f.truncate()
         
     
     

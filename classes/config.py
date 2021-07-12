@@ -1,5 +1,5 @@
 app_config = {
-    "excluded_beans":
+    "excluded_folders":
         [
             "lang",
             "locale",
