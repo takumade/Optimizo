@@ -5,7 +5,7 @@ import os
 import sys
 
 
-from classes import laravel
+from classes.bootstrap import Bootstrap
 
 # Create the parser
 my_parser = argparse.ArgumentParser(prog="optimizo", 
@@ -13,41 +13,23 @@ my_parser = argparse.ArgumentParser(prog="optimizo",
                                     epilog='Happy Optimizing!')
 
 # Add the arguments
-my_parser.add_argument('Project',
-                       metavar='project_type',
-                       type=str,
-                       help='type of project e.g larave, rn, flutter')
-
-
-my_parser.add_argument('-t',
-                       '--html',
-                       action='store_true',
-                       help='Optimize HTML')
-
 my_parser.add_argument('-c',
-                       '--css',
+                       '--generate',
                        action='store_true',
-                       help='Optimize CSS')
+                       help='Generate optimizo config file. If you dont specify directory(using -w) it will generate in the current directory.')
 
-my_parser.add_argument('-j',
-                       '--js',
-                       action='store_true',
-                       help='Optimize JS')
-
-my_parser.add_argument('-s',
-                       '--shared',
-                       action='store_true',
-                       help='Modifies laravel so its shared hosting ready. Works only with Laravel')
-
-my_parser.add_argument('-d',
-                       '--dev',
-                       action='store_true',
-                       help='Modifies laravel so its dev ready. Works only if was modified to `shared hosting ready` by optimizo previously')
 
 my_parser.add_argument('-g',
-                       '--github',
+                       '--group',
+                       metavar='group',
+                       type=str,
+                       help='Group to work with. If group doesnt exist it will be created.')
+
+my_parser.add_argument('-a',
+                       '--add',
                        action='store_true',
-                       help='Push project to github.')
+                       help='Add an instruction')
+
 
 my_parser.add_argument('-w',
                        '--directory',
@@ -57,17 +39,11 @@ my_parser.add_argument('-w',
 
 # Execute the parse_args() method
 args = my_parser.parse_args()
+bootstrap = Bootstrap() 
 
 
-
-if (args.Project == "laravel"):
-    laravelInst = laravel.Laravel(
-        args.html,
-        args.dev,
-        args.css,
-        args.js,
-        args.shared
-    )
+if (args.generate):
+    bootstrap.generate(args.directory)
     
-    laravelInst.optimize(args.directory)
-
+if (args.group and args.add):
+    bootstrap.add_instruction_interactive(args.group, args.directory)

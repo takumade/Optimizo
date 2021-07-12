@@ -1,0 +1,11 @@
+{
+    "develop": [{
+        "name": "move",
+        "src": "config.py",
+        "dst": "/classes"
+    }, {
+        "name": "move",
+        "src": "optimizo.py",
+        "dst": "/classes"
+    }]
+}
