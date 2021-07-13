@@ -2,7 +2,16 @@
 Optimizo its an tool that allows to set up instructions and run them later. In the mean you will have to run them manually
 
 
-# How to Install
+# How to Install: For users
+1. Clone it 
+
+`pip install optimizo`
+
+2. Play
+
+`python -m optimizo -h`
+
+# How to Install: For developers
 1. Clone it 
 
 `git clone https://github.com/takumade/Optimizo.git`
@@ -14,6 +23,17 @@ Optimizo its an tool that allows to set up instructions and run them later. In t
 3. Play
 
 `python optimizo.py -h`
+
+
+# For Contributors
+
+1. Class name are in camel case e.g `KillServer`
+2. Variables, Functions and Methods should be in snake case e.g `kill_server`
+3. File names should be in snake_case e.g `push_to_github.py`
+4. Instructions are executed from `classes/run_instructions.py`
+5. Instructions are added from `classes/add_instructions.py`
+
+
 
 
 
@@ -66,14 +86,6 @@ Here is a list of supported intructions
 | command | Execute a command | Yes
 
 
-### Todo
-
-- [x] Remove Ununsed files
-- [x] Implement command instructions
-- [x] Implement minify instructions
-- [ ] Add setup.py
-- [ ] Do a blog
-            
 ### What am i doing with this tool
 - I use it optimize my Laravel projects
 

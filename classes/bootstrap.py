@@ -7,6 +7,21 @@ class Bootstrap:
     def __init__(self):
         self.interactive_retry = 0
         
+        self.instructions = {
+            "1": "move",
+            "2": "copy",
+            "3": "replace",
+            "4": "minify",
+            "5": "command"
+        }
+        
+        
+    def list_instructions(self):
+        ins_keys = self.instructions.keys()
+        
+        for key in ins_keys:
+            print("{0}. {1}".format(key , self.instructions[key]))
+        
     def get_directory(self, directory):
         if (directory == None):
             target_dir = os.getcwd()
@@ -30,18 +45,9 @@ class Bootstrap:
         
         target_dir = self.get_directory(directory)
         
-        instructions = {
-            "1": "move",
-            "2": "copy",
-            "3": "replace",
-            "4": "minify",
-            "5": "command"
-        }
         
-        ins_keys = instructions.keys()
         
-        for key in ins_keys:
-            print("{0}. {1}".format(key , instructions[key]))
+        self.list_instructions()
         
         ins = input("Choose instruction[1-5]: ")
         

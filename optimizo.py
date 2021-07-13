@@ -30,6 +30,11 @@ class Optimizo:
                             metavar='group',
                             type=str,
                             help='Group to work with. If group doesnt exist it will be created.')
+        
+        my_parser.add_argument('-l',
+                            '--list',
+                            action='store_true',
+                            help='List supported instructions.')
 
         my_parser.add_argument('-r',
                             '--run',
@@ -55,6 +60,10 @@ class Optimizo:
 
 
         try:
+            if (args.list):
+                print("\nSupported Instructions:")
+                bootstrap.list_instructions()
+                
             if (args.generate):
                 bootstrap.generate(args.directory)
             
