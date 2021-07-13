@@ -1,12 +1,6 @@
 {
-    "develop": [{
-        "name": "copy",
-        "src": "C:\\xampp\\htdocs\\projects\\Optimizo\\config.py",
-        "dst": "C:\\xampp\\htdocs\\projects\\Optimizo\\classes"
-    }, {
-        "name": "replace",
-        "src": "C:\\xampp\\htdocs\\projects\\Optimizo\\config.py",
-        "search": "excluded_folders",
-        "replace": "excluded_beans"
+    "develop": [ {
+        "name": "minify",
+        "src": "C:\\xampp\\htdocs\\projects\\Optimizo\\tests\\test.html"
     }]
 }

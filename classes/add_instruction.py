@@ -16,6 +16,8 @@ class AddInstruction:
             self.get_copy()
         elif (self.name == "replace"):
             self.get_replace()
+        elif (self.name == "minify"):
+            self.get_minify()
 
         
         
@@ -108,6 +110,24 @@ class AddInstruction:
                     "src": file_name,
                     "search": search_str,
                     "replace": repl_str
+                })
+            else:
+                print("[-] File must be an actual file XD")
+        else:
+            print("[-] File doesnt exist")
+            
+    def get_minify(self):
+        print("\nMINIFY INSTRUCTION:\n")
+        source_file = input("Source File: ")
+        
+        file_name = os.path.abspath(source_file)
+        
+        if os.path.exists(file_name):
+            if (os.path.isfile(file_name)):
+                self.add_instruction({
+                    "name": self.name,
+                    "src": file_name,
+                
                 })
             else:
                 print("[-] File must be an actual file XD")
