@@ -2,6 +2,8 @@ import os
 import json
 import shutil
 import re
+import subprocess
+from classes.minify import Minify
 
 class RunInstructions:
     def __init__(self, group, directory):
@@ -35,6 +37,10 @@ class RunInstructions:
                 self.copy_ins(ins)
             elif ins_name == "replace":
                 self.replace_ins(ins)
+            elif ins_name == "minify":
+                self.minify_ins(ins)
+            elif ins_name == "command":
+                self.command_ins(ins)
             
         print("[+] Done executing instructions")
                     
@@ -67,6 +73,28 @@ class RunInstructions:
             f.seek(0)
             f.write(text)
             f.truncate()
+            
+    def minify_ins(self, obj):
+        source_file = obj["src"]
+        print("[+] Minifying {0}".format(source_file))
         
+        minify = Minify()
+        
+        if (source_file.endswith("css")):
+            minify.css_file(source_file)
+        elif (source_file.endswith("html")):
+            minify.html_file(source_file)
+        elif (source_file.endswith("js")):
+            minify.js_file(source_file)
+        else:
+            print("[-] File extension not supported")
+        
+        
+        
+    
+    def command_ins(self, obj):
+        command = obj['command']
+        print("[+] Running command {0}".format(command))
+        subprocess.run(command) 
     
     
