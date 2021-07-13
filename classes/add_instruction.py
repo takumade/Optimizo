@@ -1,5 +1,6 @@
 import os
 import json
+import classes.bootstrap as appbootstrap
 
 class AddInstruction:
     def __init__(self,group, name, target_dir):
@@ -20,36 +21,53 @@ class AddInstruction:
             self.get_minify()
         elif (self.name == "command"):
             self.get_command()
+        else:
+            print("[-] Instruction not supported.")
 
         
         
     def add_instruction(self, instruction_object):
         filepath = os.path.join(self.target_dir, "optimizo.json")
-        with open(filepath) as obj:
-            try:
-                data = json.load(obj)
-                
-                if self.group in data.keys():
-                    data[self.group].append(instruction_object)
-                else:
-                    data[self.group] = []
-                    data[self.group].append(instruction_object)
+        
+        
+        try:
+            with open(filepath) as obj:
+                try:
+                    data = json.load(obj)
                     
-                with open(filepath, "w") as outfile:
-                    json.dump(data, outfile)
-            except json.decoder.JSONDecodeError:
-                with open(filepath, "w") as outfile:
-                    data = {}
-                    
+                    if self.group in data.keys():
+                        data[self.group].append(instruction_object)
+                    else:
+                        data[self.group] = []
+                        data[self.group].append(instruction_object)
+                        
                     with open(filepath, "w") as outfile:
                         json.dump(data, outfile)
+                except json.decoder.JSONDecodeError:
+                    with open(filepath, "w") as outfile:
+                        data = {}
                         
-                if self.retry_adding < 2:
-                    self.add_instruction(instruction_object)
-                else:
-                    print("[-] Couldnt add instruction, exiting")
-                        
-        print("[+] Added")
+                        with open(filepath, "w") as outfile:
+                            json.dump(data, outfile)
+                            
+                    if self.retry_adding < 2:
+                        self.retry_adding += 1
+                        self.add_instruction(instruction_object)
+                    else:
+                        print("[-] Couldnt add instruction, exiting")
+                            
+            print("[+] Added")
+        except FileNotFoundError:
+            print("[-] File not found adding file...")
+            bootstrap = appbootstrap.Bootstrap()
+            bootstrap.generate(self.target_dir)
+            
+            
+            if self.retry_adding < 2:
+                self.retry_adding += 1
+                self.add_instruction(instruction_object)
+            else:
+                print("[-] Couldnt add instruction, exiting")
                     
         
         

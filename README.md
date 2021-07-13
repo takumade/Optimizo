@@ -59,10 +59,20 @@ Optimizo its an tool that allows to set up instructions and run them later. In t
 ```
 
 2. You then add your instructions like this
+
+    #### Method 1: Interactive
      `optimizo.py -g develop -a`
 
-     It will ask you for command name and extra details.
+
+    ### Method 2: Semi-Interactive
+    `optimizo.py -g develop -i move`
+
+
+
+     It will ask you for instruction name and extra details.
      You can also add multiple instructions like these
+
+     **Note:** Develop here is a group name in your config, it can be `cats, chickens, deploy, hide, etc`
 
      **Note:*** If a group is not available it is added
 

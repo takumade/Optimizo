@@ -35,6 +35,12 @@ class Optimizo:
                             '--list',
                             action='store_true',
                             help='List supported instructions.')
+        
+        my_parser.add_argument('-i',
+                            '--instruction',
+                            type=str,
+                            metavar='instruction',
+                            help='Specify an instruction. For use in semi-interactive')
 
         my_parser.add_argument('-r',
                             '--run',
@@ -69,6 +75,9 @@ class Optimizo:
             
             if (args.group and args.add):
                 bootstrap.add_instruction_interactive(args.group, args.directory)
+                
+            if (args.group and args.instruction):
+                bootstrap.add_instruction_semi_interactive(args.group, args.instruction, args.directory)
                 
             if (args.run):
                 bootstrap.run_instruction(args.run, args.directory)

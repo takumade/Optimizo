@@ -41,10 +41,14 @@ class Bootstrap:
         
         print("[100%] Done")
         
+        
+    def add_instruction_semi_interactive(self, group, instruction, directory):
+        target_dir = self.get_directory(directory)
+        add_instruction = AddInstruction(group, instruction, target_dir)
+        
     def add_instruction_interactive(self, group, directory):
         
         target_dir = self.get_directory(directory)
-        
         
         
         self.list_instructions()

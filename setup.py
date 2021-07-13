@@ -5,7 +5,7 @@ with open("README.md", 'r') as fileobj:
 
 setup(
    name='optimizo',
-   version='1.2',
+   version='1.3',
    description='Optimizo its an tool that allows to set up instructions and run them later. In the mean you will have to run them manually',
    license="MIT",
    long_description=long_description,
