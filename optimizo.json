@@ -1,6 +1,9 @@
 {
-    "develop": [ {
+    "develop": [{
         "name": "minify",
         "src": "C:\\xampp\\htdocs\\projects\\Optimizo\\tests\\test.html"
+    }, {
+        "name": "command",
+        "command": "ls"
     }]
 }

@@ -18,6 +18,8 @@ class AddInstruction:
             self.get_replace()
         elif (self.name == "minify"):
             self.get_minify()
+        elif (self.name == "command"):
+            self.get_command()
 
         
         
@@ -133,6 +135,16 @@ class AddInstruction:
                 print("[-] File must be an actual file XD")
         else:
             print("[-] File doesnt exist")
+            
+    def get_command(self):
+        print("\nCOMMAND INSTRUCTION:\n")
+        command = input("Command: ")
+
+        self.add_instruction({
+                    "name": self.name,
+                    "command": command
+                
+        })
         
         
         
