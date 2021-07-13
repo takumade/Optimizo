@@ -62,15 +62,15 @@ Here is a list of supported intructions
 | move | Move a file from one part to another | Yes
 | copy | Copy a file from source to dest | Yes
 | replace | Replace text in a file | Yes
-| minify | Minify text in a file | No
-| command | Execute a command | No
+| minify | Minify text in a file | Yes
+| command | Execute a command | Yes
 
 
 ### Todo
 
-- [ ] Remove Ununsed files
-- [ ] Implement command instructions
-- [ ] Implement minify instructions
+- [x] Remove Ununsed files
+- [x] Implement command instructions
+- [x] Implement minify instructions
 - [ ] Add setup.py
 - [ ] Do a blog
             
