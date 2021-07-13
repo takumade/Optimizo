@@ -1,7 +1,7 @@
 {
     "develop": [{
         "name": "minify",
-        "src": "C:\\xampp\\htdocs\\projects\\Optimizo\\tests\\test.html"
+        "src": "C:\\xampp\\htdocs\\projects\\Optimizo\\tests\\test.blade.php"
     }, {
         "name": "command",
         "command": "ls"

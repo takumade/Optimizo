@@ -82,8 +82,8 @@ class RunInstructions:
         
         if (source_file.endswith("css")):
             minify.css_file(source_file)
-        elif (source_file.endswith("html")):
-            minify.html_file(source_file)
+        elif (source_file.endswith("html") or source_file.endswith("blade.php")):
+            minify.html_file(source_file, True)
         elif (source_file.endswith("js")):
             minify.js_file(source_file)
         else:
