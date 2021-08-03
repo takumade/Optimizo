@@ -10,8 +10,9 @@ from classes.bootstrap import Bootstrap
 
 class Optimizo:
     def __init__(self):
-        self.process_commands()
+        self.process_commands()  
         
+
     def process_commands(self):
         # Create the parser
         my_parser = argparse.ArgumentParser(prog="optimizo", 

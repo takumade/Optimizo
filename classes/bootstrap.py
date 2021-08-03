@@ -58,7 +58,7 @@ class Bootstrap:
   
         try:
             ins = int(ins)
-            choosen_ins = instructions[str(ins)]
+            choosen_ins = self.instructions[str(ins)]
             add_instruction = AddInstruction(group, choosen_ins, target_dir)
             
              

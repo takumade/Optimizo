@@ -1,0 +1,1 @@
+{"deploy": [{"name": "command", "command": "python setup.py sdist"}, {"name": "command", "command": "twine upload dist/*"}]}
