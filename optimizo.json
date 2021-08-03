@@ -1,1 +1,1 @@
-{"develop": [{"name": "replace", "src": "C:\\xampp\\htdocs\\projects\\Optimizo\\README.md", "search": "Note:", "replace": "NB:"}]}
+{"deploy": [{"name": "command", "command": "python setup.py sdist"}, {"name": "command", "command": "twine upload dist/*"}]}
