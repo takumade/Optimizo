@@ -96,5 +96,6 @@ Here is a list of supported intructions
 
 
 ### What am i doing with this tool
+- I use it on Optimizo to automate the deployment process. 😂😂😂 Optimizo screws Optimizo.
 - I use it optimize and deploy my Laravel and Python projects
 - I use to automate some menial tasks
